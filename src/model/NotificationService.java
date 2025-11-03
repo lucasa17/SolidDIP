@@ -1,19 +1,17 @@
 package model;
 
+import java.util.List;
+
 public class NotificationService {
 
-	private EmailSender emailSender;
-	private SMSSender smsSender;
-
-	// NotificationService é acoplada aos tipos de notificadores
-	public NotificationService() {
-		this.emailSender = new EmailSender();
-		this.smsSender = new SMSSender();
+	private List<Sender> senders;
+	
+	public NotificationService(List<Sender> senders) {
+		this.senders = senders;
 	}
 
 	public void notifyUser(String message) {
-		emailSender.sendEmail(message);
-		
-		smsSender.sendSMS(message);
+		for (Sender senders : senders)
+			senders.sender(message);
 	}
 }

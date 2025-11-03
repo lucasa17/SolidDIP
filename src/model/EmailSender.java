@@ -1,8 +1,10 @@
 package model;
 
-public class EmailSender {
+public class EmailSender implements Sender {
 
-	public void sendEmail(String message) {
+	@Override
+	public void sender(String message) {
 		System.out.println(String.format("Novo e-mail \n%s\n", message));
+		
 	}
 }

@@ -1,8 +1,10 @@
 package model;
 
-public class SMSSender {
+public class SMSSender implements Sender {
 
-	public void sendSMS(String message) {
+	@Override
+	public void sender(String message) {
 		System.out.println(String.format("Nova SMS \n%s\n", message));
+		
 	}
 }
